@@ -49,9 +49,12 @@ def match(payload: MatchRequest, request: Request):
                 near_matches.append(near)
             # remaining NOT_ELIGIBLE records are simply not shown
 
+    # Do not block bulk matching on one Gemini request per scholarship.
+    # Use deterministic, data-grounded explanations in the results list;
+    # Gemini remains available for on-demand detail explanations.
     for group in (eligible, near_matches, needs_review):
         for result in group:
-            result.explanation = explanation_service.explain(
+            result.explanation = explanation_service.template_explanation(
                 profile, result.scholarship, result.checks,
                 result.status, result.missing, profile.lang,
             )
