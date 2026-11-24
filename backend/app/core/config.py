@@ -11,7 +11,7 @@ DATA_FILE = Path(os.environ.get("SCHOLARSHIPS_CSV", APP_DIR / "data" / "scholars
 
 GEMINI_API_KEY = os.environ.get("GEMINI_API_KEY", "").strip()
 GEMINI_MODEL = os.environ.get("GEMINI_MODEL", "gemini-2.0-flash").strip() or "gemini-2.0-flash"
-GEMINI_TIMEOUT_SECONDS = float(os.environ.get("GEMINI_TIMEOUT_SECONDS", "8"))
+GEMINI_TIMEOUT_SECONDS = float(os.environ.get("GEMINI_TIMEOUT_SECONDS", "4"))
 
 # The organizer dataset's CGPA values (2.0-3.9 minimums) are on the
 # Bangladeshi university 4.00 scale; the dataset clearly establishes it.
