@@ -64,9 +64,12 @@ router.post("/api/match", async (req, res, next) => {
       }
     }
 
+    // Matching must not wait for one Gemini request per scholarship.
+    // Use the deterministic, data-grounded explanation for bulk results;
+    // Gemini remains available for on-demand detail explanations.
     for (const group of [eligible, nearMatches, needsReview]) {
       for (const result of group) {
-        result.explanation = await explanationService.explain(
+        result.explanation = explanationService.templateExplanation(
           profile,
           result.scholarship,
           result.checks,

@@ -16,7 +16,7 @@ const settings = {
   GEMINI_API_KEY: (process.env.GEMINI_API_KEY || "").trim(),
   GEMINI_MODEL:
     (process.env.GEMINI_MODEL || "gemini-2.0-flash").trim() || "gemini-2.0-flash",
-  GEMINI_TIMEOUT_SECONDS: parseFloat(process.env.GEMINI_TIMEOUT_SECONDS || "8"),
+  GEMINI_TIMEOUT_SECONDS: parseFloat(process.env.GEMINI_TIMEOUT_SECONDS || "4"),
 };
 
 // The organizer dataset's CGPA values (2.0-3.9 minimums) are on the
